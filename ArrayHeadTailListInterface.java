@@ -7,13 +7,13 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   private int numberOfElements;
 
   // Luke Evans
+  
   public ArrayHeadTailListInterface(int initialCapacity) {
     if(initialCapacity < 1) {
       initialCapacity = 1;
     }
 
-    @SuppressWarnings(“unchecked”)
-    listArray = (T) new Object[initialCapacity];
+    listArray = (T[]) new Object[initialCapacity];
     numberOfElements = 0;
   }
 
@@ -44,11 +44,41 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
     }
   }
 
-  // Joshua Hansen
+  // Monk Wellington
 
-  public boolean isEmpty() {
-    return (numberOfElements == 0);
+  @Override
+  public void addFront(T newEntry) {
+
   }
+
+  @Override
+  public void display() {
+
+  }
+
+  @Override
+  public T removeBack() {
+    return null;
+  }
+
+  //  Ayesha Chattopadhyay
+
+  @Override
+  public void addBack(T newEntry) {
+
+  }
+
+  @Override
+  public T getEntry(int givenPosition) {
+    return null;
+  }
+
+  @Override
+  public int size() {
+    return 0;
+  }
+
+  // Joshua Hansen
 
   @SuppressWarnings(“unchecked”)
   public void clear() {
@@ -56,4 +86,7 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
     numberOfElements = 0;
   }
 
+  public boolean isEmpty() {
+    return (numberOfElements == 0);
+  }
 }
