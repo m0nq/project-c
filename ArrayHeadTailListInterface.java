@@ -67,8 +67,8 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
         numberOfElements++;
       } else {
 
-        for (int i = numberOfElements; i >= 0; i--) {
-          listArray[i + 1] = listArray[i];
+        for (int i = numberOfElements; i > 0; i--) {
+          listArray[i] = listArray[i - 1];
         }
 
         listArray[0] = newEntry;
@@ -79,7 +79,21 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
 
   @Override
   public void display() {
+    if (numberOfElements != 0) {
+      String consoleList = "";
+      for (int i = 0; i < numberOfElements; i++) {
+        if (listArray[i] instanceof String)
+          consoleList += listArray[i] + " ";
+        else {
+          consoleList += listArray[i].toString() + ", ";
 
+          if (i == numberOfElements - 1)
+            consoleList = consoleList.substring(0, consoleList.length() - 1);
+        }
+      }
+      consoleList = consoleList.substring(0, consoleList.length() - 1);
+      System.out.println(consoleList);
+    }
   }
 
   @Override
@@ -108,7 +122,8 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
 
   //  @SuppressWarnings(“unchecked”)
   public void clear() {
-    listArray = (T[]) new Object[numberOfElements]; // listArray retains its current length
+    // listArray retains its current length
+    listArray = numberOfElements == 0 ? (T[]) new Object[1] : (T[]) new Object[numberOfElements];
     numberOfElements = 0;
   }
 
