@@ -7,9 +7,9 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   private int numberOfElements;
 
   // Luke Evans
-  
+
   public ArrayHeadTailListInterface(int initialCapacity) {
-    if(initialCapacity < 1) {
+    if (initialCapacity < 1) {
       initialCapacity = 1;
     }
 
@@ -18,8 +18,8 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   }
 
   public int contains(T anEntry) {
-    for(int i=0; i < numberOfElements; i++) {
-      if(listArray[i].equals(anEntry)) {
+    for (int i = 0; i < numberOfElements; i++) {
+      if (listArray[i].equals(anEntry)) {
         return i;
       }
     }
@@ -28,11 +28,11 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   }
 
   public T removeFront() {
-    if(numberOfElements > 0) {
+    if (numberOfElements > 0) {
       T removedElement = listArray[0];
-      for(int i=0; i < numberOfElements; i++) {
-        if(i + 1 != numberOfElements) {
-          listArray[i] = listArray[i+1];
+      for (int i = 0; i < numberOfElements; i++) {
+        if (i + 1 != numberOfElements) {
+          listArray[i] = listArray[i + 1];
         } else {
           listArray[i] = null;
         }
@@ -49,6 +49,32 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   @Override
   public void addFront(T newEntry) {
 
+    if (newEntry != null) {
+      if (numberOfElements == 0) {
+        listArray[0] = newEntry;
+        numberOfElements++;
+      } else if (numberOfElements == listArray.length) {
+        T[] interimList = (T[]) new Object[numberOfElements * 2];
+
+        interimList[0] = newEntry;
+
+        for (int i = 0; i < listArray.length; i++) {
+          interimList[i + 1] = listArray[i];
+        }
+
+        listArray = interimList;
+
+        numberOfElements++;
+      } else {
+
+        for (int i = numberOfElements; i >= 0; i--) {
+          listArray[i + 1] = listArray[i];
+        }
+
+        listArray[0] = newEntry;
+        numberOfElements++;
+      }
+    }
   }
 
   @Override
@@ -80,7 +106,7 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
 
   // Joshua Hansen
 
-  @SuppressWarnings(“unchecked”)
+  //  @SuppressWarnings(“unchecked”)
   public void clear() {
     listArray = (T[]) new Object[numberOfElements]; // listArray retains its current length
     numberOfElements = 0;
