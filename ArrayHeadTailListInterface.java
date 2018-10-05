@@ -98,7 +98,7 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
 
   @Override
   public T removeBack() {
-    return null;
+    return numberOfElements != 0 ? listArray[numberOfElements - 1] : null;
   }
 
   //  Ayesha Chattopadhyay
