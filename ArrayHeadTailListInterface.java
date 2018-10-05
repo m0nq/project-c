@@ -109,13 +109,18 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
   }
 
   @Override
-  public T getEntry(int givenPosition) {
-    return null;
+  public T getEntry(int position) {
+    if (position >= 0 && position <= numberOfElements) {
+      assert !isEmpty();
+      return listArray[position];
+    } else {
+      throw new IndexOutOfBoundsException("Error: Illegal position.");
+    }
   }
 
   @Override
   public int size() {
-    return 0;
+    return numberOfElements;
   }
 
   // Joshua Hansen
