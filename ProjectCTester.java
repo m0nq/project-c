@@ -7,7 +7,7 @@ public class ProjectCTester {
 		// un-comment this line and comment the line above to test the extra credit
 		// NOTE: for the extra credit, all lines should match except for the capacity print out-
 		// the capacity of an AList is private, so this cannot be shown
-		//HeadTailListInterface<Integer> list = new AListHeadTailListInterface<Integer>(10);
+//		HeadTailListInterface<Integer> list = new AListHeadTailListInterface<Integer>(10);
 		
 		
 		// test isEmpty
