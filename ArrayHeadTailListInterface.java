@@ -130,8 +130,6 @@ public class ArrayHeadTailListInterface<T> implements HeadTailListInterface<T> {
       assert !isEmpty();
       return listArray[position];
     } else {
-//      Ayesha's original solution. Only commented to run test
-//      throw new IndexOutOfBoundsException("Error: Illegal position.");
       return null;
     }
   }
